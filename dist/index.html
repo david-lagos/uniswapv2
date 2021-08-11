@@ -16,6 +16,22 @@
             <!--><option value='"0x7858e59e0c01ea06df3af3d20ac7b0003275d4bf"'>USDC/USDT</option>
             <option value='"0xcbcdf9626bc03e24f779434178a73a0b4bad62ed"'>WBTC/ETH</option>><-->
         </select>
+        <div>
+            <select name="token0" id="token0List">
+                <option hidden disabled selected value></option> 
+                <option value="ETH">ETH</option>
+                <option value="0x1f9840a85d5af5bf1d1762f925bdaddc4201f984">UNI</option>
+            </select>
+            <input style="display: none;" type="number" id="token0Input">
+        </div>
+        <div>
+            <select name="token1" id="token1List">
+                <option hidden disabled selected value></option> 
+                <option value="ETH">ETH</option>
+                <option value="0x1f9840a85d5af5bf1d1762f925bdaddc4201f984">UNI</option>
+            </select>
+            <input style="display: none;" type="number" id="token1Input">
+        </div>
         <button id="addLiquidity">Add Liquidity</button>
         <div id="root"></div>
     </div>

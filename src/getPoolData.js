@@ -75,7 +75,7 @@ const getPairs = async() => {
     {
         query: `
         {
-            pairs(first: 5
+            pairs(first: 10
               where: {txCount_gt: 10000}
               orderBy: reserveUSD
               orderDirection: desc){
@@ -131,4 +131,18 @@ const getHourData = async(poolKey) => {
     return result.data.data.pairHourDatas;
 }
 
-module.exports = { getTVL, getTicks, getPairs, getDayData, getHourData, printArray };
+const getPriceData = async(tokenKey) => {
+    const result = await axios.post('https://api.thegraph.com/subgraphs/name/uniswap/uniswap-v3',
+    {
+        query: `
+        {
+            tokenHourDatas(first: 1 where: {token: "${tokenKey}"} orderBy: periodStartUnix orderDirection: desc){
+              priceUSD
+            }
+        }`
+    });
+
+    return result.data.data.tokenHourDatas;
+}
+
+module.exports = { getPairs, getDayData, getHourData, getPriceData, printArray };
